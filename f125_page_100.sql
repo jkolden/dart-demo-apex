@@ -70,7 +70,7 @@ wwv_flow_imp_page.create_page(
 '.dart-status-unapplied { background:#c47e10; }',
 '.dart-num { text-align:right; font-variant-numeric:tabular-nums; }',
 '.dart-foot-label { text-align:right; font-weight:700; }',
-'.dart-chart-wrap { display:flex; align-items:center; gap:20px; max-width:420px; }',
+'.dart-chart-wrap { display:flex; align-items:center; gap:24px; max-width:560px; flex-wrap:nowrap; }',
 '.dart-donut { width:150px; height:150px; flex-shrink:0; }',
 '.dart-donut-arc { transition:stroke-dasharray .4s ease, stroke-dashoffset .4s ease; }',
 '.dart-legend { display:flex; flex-direction:column; gap:10px; }',
