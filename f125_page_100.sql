@@ -93,8 +93,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>10
-,p_plug_source_type=>'NATIVE_STATIC'
-,p_attribute_01=>'N'
 );
 -- Page Items: Batch Category
 wwv_flow_imp_page.create_page_item(
@@ -113,7 +111,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -148,7 +146,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -172,7 +170,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -190,7 +188,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>200
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>8
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -217,7 +215,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -244,7 +242,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -291,7 +289,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -308,7 +306,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>10
 ,p_cMaxlength=>10
 ,p_begin_on_new_line=>'N'
-,p_colspan=>4,p_field_template=>2526760615038828570
+,p_colspan=>4,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -324,8 +322,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>20
-,p_plug_source_type=>'NATIVE_STATIC'
-,p_attribute_01=>'N'
 );
 -- Page Items: Bank Name (cascades from HOFI)
 wwv_flow_imp_page.create_page_item(
@@ -352,7 +348,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>12
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -368,7 +364,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DISPLAY_ONLY'
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
@@ -386,7 +382,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'POPUP'
@@ -407,7 +403,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>50
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-,p_field_template=>2526760615038828570
+,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -423,7 +419,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_prompt=>'Bank Amount'
 ,p_display_as=>'NATIVE_DISPLAY_ONLY'
 ,p_begin_on_new_line=>'N'
-,p_colspan=>6,p_field_template=>2526760615038828570
+,p_colspan=>6,p_field_template=>1609121967514267634
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
@@ -479,8 +475,6 @@ wwv_flow_imp_page.create_page_plug(
 '    </div>',
 '  </div>',
 '</div>'))
-,p_plug_source_type=>'NATIVE_STATIC'
-,p_attribute_01=>'N'
 );
 --------------------------------------------------------------------------------
 -- REGION: GL Lines (Classic Report)
