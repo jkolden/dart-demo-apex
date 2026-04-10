@@ -22,7 +22,7 @@ wwv_flow_imp.import_begin (
 ,p_default_workspace_id=>8157687763422631
 ,p_default_application_id=>125
 ,p_default_id_offset=>0
-,p_default_owner=>'WKSP_DART'
+,p_default_owner=>'WKSP_LEPPARD'
 );
 end;
 /
@@ -115,7 +115,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -150,7 +150,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -174,7 +174,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -192,7 +192,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>200
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>8
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -219,7 +219,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -246,7 +246,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -293,7 +293,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -312,7 +312,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
 ,p_css_classes=>'dart-hofi'
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -360,7 +360,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>12
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -376,7 +376,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DISPLAY_ONLY'
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
@@ -394,7 +394,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'POPUP'
@@ -415,7 +415,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>50
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -433,7 +433,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
 ,p_css_classes=>'dart-amount'
-,p_field_template=>2318601014498534498
+
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
