@@ -504,6 +504,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'<h4>GL Lines (5)</h4>'
 );
 wwv_flow_imp_page.create_report_columns(
@@ -581,6 +582,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'<h4>PNG Lines (3)</h4>'
 );
 wwv_flow_imp_page.create_report_columns(
@@ -657,6 +659,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'<h4>AR Receipt Lines (3)</h4>'
 );
 wwv_flow_imp_page.create_report_columns(
