@@ -93,10 +93,8 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>10
-
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_source_type=>'NATIVE_STATIC'
 ,p_attribute_01=>'N'
-,p_attribute_02=>'HTML'
 );
 -- Page Items: Batch Category
 wwv_flow_imp_page.create_page_item(
@@ -318,11 +316,8 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>20
-
-
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_source_type=>'NATIVE_STATIC'
 ,p_attribute_01=>'N'
-,p_attribute_02=>'HTML'
 );
 -- Page Items: Bank Name (cascades from HOFI)
 wwv_flow_imp_page.create_page_item(
@@ -431,7 +426,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>30
-
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="dart-chart-wrap">',
 '  <svg viewBox="0 0 100 100" class="dart-donut">',
@@ -473,7 +467,6 @@ wwv_flow_imp_page.create_page_plug(
 '  </div>',
 '</div>'))
 ,p_plug_source_type=>'NATIVE_STATIC'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 );
 --------------------------------------------------------------------------------
@@ -485,7 +478,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>40
-
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -507,7 +499,7 @@ wwv_flow_imp_page.create_page_plug(
 ')',
 'ORDER BY id'))
 ,p_plug_source_type=>'NATIVE_SQL_REPORT'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
@@ -613,7 +605,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>50
-
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -632,7 +623,7 @@ wwv_flow_imp_page.create_page_plug(
 ')',
 'ORDER BY id'))
 ,p_plug_source_type=>'NATIVE_SQL_REPORT'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
@@ -692,7 +683,6 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>60
-
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -711,7 +701,7 @@ wwv_flow_imp_page.create_page_plug(
 ')',
 'ORDER BY id'))
 ,p_plug_source_type=>'NATIVE_SQL_REPORT'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+
 ,p_plug_query_num_rows=>50
 ,p_plug_query_num_rows_type=>'SET'
 ,p_plug_query_show_nulls_as=>' '
