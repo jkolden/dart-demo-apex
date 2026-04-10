@@ -1,0 +1,13 @@
+{
+  "name": "dart-demo-apex",
+  "private": true,
+  "version": "0.0.1",
+  "description": "DART Demo — Oracle APEX / Universal Theme Edition",
+  "scripts": {
+    "dev": "http-server -p 8081 -c-1 -o",
+    "start": "http-server -p 8081 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

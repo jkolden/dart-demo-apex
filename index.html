@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DART Deposit Batch — Oracle APEX Edition</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23005baa'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='16' fill='white'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PASSWORD GATE                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="loginGate" class="apex-gate" style="display:none">
+  <form id="loginForm" class="apex-gate-card">
+    <div class="apex-gate-logo">Oracle Cloud</div>
+    <h1 class="apex-gate-title">DART Demo</h1>
+    <p class="apex-gate-subtitle">County of San Diego</p>
+    <p class="apex-gate-subtitle apex-gate-badge">Built with Oracle APEX</p>
+    <input id="pwInput" class="apex-gate-input" type="password"
+           placeholder="Enter demo password" autofocus />
+    <span id="pwError" class="apex-gate-error" style="display:none">Incorrect password</span>
+    <button class="apex-gate-btn" type="submit">Enter</button>
+  </form>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- MAIN APPLICATION                                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="mainApp" style="display:none">
+  <div class="apex-layout">
+
+    <!-- ── Top Header Bar ─────────────────────────────────────── -->
+    <header class="apex-header">
+      <button id="sidebarToggle" class="apex-header-hamburger" title="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <div class="apex-header-logo">
+        <span class="apex-header-logo-icon">D</span>
+        DART
+      </div>
+      <div class="apex-header-spacer"></div>
+      <div class="apex-header-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search application..." />
+      </div>
+      <div class="apex-header-user" title="Moana Wavecrest">MW</div>
+    </header>
+
+    <!-- ── Sidebar Navigation ─────────────────────────────────── -->
+    <nav class="apex-sidebar">
+      <div class="apex-sidebar-header">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>
+        <span>Navigation</span>
+      </div>
+      <ul class="apex-nav-list">
+        <li class="apex-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>
+          <span class="apex-sidebar-label">Home</span>
+        </li>
+        <li class="apex-nav-item is-active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span class="apex-sidebar-label">DART Batches</span>
+        </li>
+        <li class="apex-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span class="apex-sidebar-label">Batch Queue</span>
+        </li>
+        <li class="apex-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span class="apex-sidebar-label">Reports</span>
+        </li>
+        <li class="apex-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="apex-sidebar-label">Analytics</span>
+        </li>
+        <li class="apex-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span class="apex-sidebar-label">Administration</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ── Main Content ───────────────────────────────────────── -->
+    <main class="apex-main">
+
+      <!-- Breadcrumb -->
+      <div class="apex-breadcrumb">
+        <a href="#">Home</a>
+        <span class="apex-breadcrumb-sep">&rsaquo;</span>
+        <a href="#">DART Batches</a>
+        <span class="apex-breadcrumb-sep">&rsaquo;</span>
+        DART-000001
+      </div>
+
+      <!-- Page Header -->
+      <div class="apex-page-header">
+        <div class="apex-page-header-left">
+          <h1 id="bannerTitle" class="apex-page-title">DART Deposit Batch #D-000001</h1>
+          <div class="apex-page-meta">
+            <span id="bannerBadge" class="apex-badge apex-badge--info">Incomplete</span>
+            <span id="bannerPreparer">Moana Wavecrest</span>
+            <span id="bannerDate"></span>
+          </div>
+        </div>
+        <div class="apex-page-header-right">
+          <div class="apex-page-actions">
+            <button id="btnUnlock" class="apex-btn apex-btn--text" style="display:none">Unlock</button>
+            <button id="btnCancel" class="apex-btn">Cancel</button>
+            <button id="btnSave" class="apex-btn apex-btn--hot">Save &amp; Lock</button>
+          </div>
+          <span id="bannerUpdated" class="apex-page-updated"></span>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div id="lockToast" class="apex-toast" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Batch saved and record locked. This bank deposit cannot be selected by another preparer.
+      </div>
+
+      <!-- HOFI Warning -->
+      <div id="hofiWarning" class="apex-warning" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span id="hofiWarningText"></span>
+      </div>
+
+      <!-- Page Body -->
+      <div class="apex-page-body">
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- REGION: Batch Information                             -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <div class="apex-region">
+          <div class="apex-region-header">
+            <h2 class="apex-region-title">Batch Information</h2>
+          </div>
+          <div class="apex-region-body">
+            <div class="apex-form-grid apex-form-grid-3">
+              <label class="apex-field">
+                <span class="apex-label">Batch Category</span>
+                <select id="batchCategory" class="apex-select"></select>
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Batch Type</span>
+                <select id="batchType" class="apex-select"></select>
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Batch Status</span>
+                <select id="batchStatus" class="apex-select"></select>
+              </label>
+              <label class="apex-field apex-span-2">
+                <span class="apex-label">Batch Name</span>
+                <input id="batchNameInput" class="apex-input" type="text" />
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Workflow Status</span>
+                <select id="workflowStatus" class="apex-select"></select>
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Preparer Organization</span>
+                <select id="preparerOrg" class="apex-select"></select>
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Preparer Name</span>
+                <select id="preparerName" class="apex-select"></select>
+              </label>
+              <label class="apex-field">
+                <span class="apex-label">Preparer HOFI</span>
+                <input id="preparerHOFI" class="apex-input apex-hofi" type="text" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- REGION: Bank Deposit + Chart                          -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <div class="apex-two-col">
+          <div class="apex-region">
+            <div class="apex-region-header">
+              <h2 class="apex-region-title">Bank Deposit Context</h2>
+            </div>
+            <div class="apex-region-body">
+              <div class="apex-form-grid apex-form-grid-2">
+                <label class="apex-field apex-span-2">
+                  <span class="apex-label">Bank Name</span>
+                  <select id="bankName" class="apex-select"></select>
+                </label>
+                <label class="apex-field">
+                  <span class="apex-label">Bank Account</span>
+                  <input id="bankAccount" class="apex-input" readonly />
+                </label>
+                <label class="apex-field">
+                  <span class="apex-label">Bank Date</span>
+                  <input id="bankDate" class="apex-input" type="date" />
+                </label>
+                <label class="apex-field">
+                  <span class="apex-label">Bank Reference</span>
+                  <input id="bankReference" class="apex-input" type="text" />
+                </label>
+                <label class="apex-field">
+                  <span class="apex-label">Bank Amount</span>
+                  <input id="bankAmount" class="apex-input apex-amount" readonly />
+                </label>
+              </div>
+              <p id="bankHint" class="apex-hint" style="display:none">
+                <span id="bankHintText"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="apex-region">
+            <div class="apex-region-header">
+              <h2 class="apex-region-title">Deposit Distribution</h2>
+            </div>
+            <div class="apex-region-body">
+              <div class="apex-chart-layout">
+                <svg viewBox="0 0 100 100" class="apex-donut">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e5e5" stroke-width="12"/>
+                  <g id="donutArcs"></g>
+                  <text x="50" y="47" text-anchor="middle" class="apex-donut-label">Total</text>
+                  <text id="donutTotal" x="50" y="57" text-anchor="middle" class="apex-donut-value"></text>
+                </svg>
+                <div id="chartLegend" class="apex-chart-legend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- REGION: Distribution Lines                            -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <div class="apex-region">
+          <div class="apex-region-header">
+            <h2 class="apex-region-title">Distribution Lines</h2>
+          </div>
+          <div class="apex-region-body" style="padding-top:0">
+
+            <!-- Tabs -->
+            <div class="apex-tabs">
+              <button class="apex-tab-item is-active" data-tab="gl">GL Lines <span class="apex-tab-count">5</span></button>
+              <button class="apex-tab-item" data-tab="png">PNG Lines <span class="apex-tab-count">3</span></button>
+              <button class="apex-tab-item" data-tab="ar">AR Receipts <span class="apex-tab-count">3</span></button>
+            </div>
+
+            <!-- GL Lines -->
+            <div id="glPanel">
+              <div class="apex-ir-toolbar">
+                <div class="apex-ir-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Search..." />
+                </div>
+                <span class="apex-ir-badge">5 rows</span>
+              </div>
+              <div class="apex-table-wrap">
+                <table class="apex-table">
+                  <thead>
+                    <tr>
+                      <th>#</th><th>Fund</th><th>Budget Ref</th><th>Dept</th>
+                      <th>Account</th><th>Program</th><th>Funding Src</th>
+                      <th>Project</th><th class="apex-num">Amount</th><th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="glBody"></tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="8" class="apex-foot-label">Total</td>
+                      <td id="glTotal" class="apex-num"></td>
+                      <td></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
+            <!-- PNG Lines -->
+            <div id="pngPanel" style="display:none">
+              <div class="apex-ir-toolbar">
+                <div class="apex-ir-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Search..." />
+                </div>
+                <span class="apex-ir-badge">3 rows</span>
+              </div>
+              <div class="apex-table-wrap">
+                <table class="apex-table">
+                  <thead>
+                    <tr>
+                      <th>#</th><th>Project</th><th>Task</th><th>Exp Type</th>
+                      <th>Exp Org</th><th>Contract</th><th>Funding Source</th>
+                      <th class="apex-num">Amount</th><th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pngBody"></tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="7" class="apex-foot-label">Total</td>
+                      <td id="pngTotal" class="apex-num"></td>
+                      <td></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
+            <!-- AR Receipt Lines -->
+            <div id="arPanel" style="display:none">
+              <div class="apex-ir-toolbar">
+                <div class="apex-ir-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Search..." />
+                </div>
+                <span class="apex-ir-badge">3 rows</span>
+              </div>
+              <div class="apex-table-wrap">
+                <table class="apex-table">
+                  <thead>
+                    <tr>
+                      <th>#</th><th>Receipt Number</th><th>Customer</th>
+                      <th class="apex-num">Amount</th><th>Receipt Date</th>
+                      <th>Status</th><th>DART Batch</th>
+                    </tr>
+                  </thead>
+                  <tbody id="arBody"></tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="3" class="apex-foot-label">Total Receipts</td>
+                      <td id="arTotal" class="apex-num"></td>
+                      <td colspan="3"></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /apex-page-body -->
+    </main>
+  </div><!-- /apex-layout -->
+</div><!-- /mainApp -->
+
+<script src="js/app.js"></script>
+</body>
+</html>
