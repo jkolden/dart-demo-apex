@@ -93,7 +93,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>10
-,p_plug_display_point=>'BODY'
+
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -115,7 +115,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -150,7 +149,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -174,7 +172,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -192,7 +189,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>200
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>8
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -219,7 +215,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -246,7 +241,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -293,7 +287,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>4
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -310,10 +303,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>10
 ,p_cMaxlength=>10
 ,p_begin_on_new_line=>'N'
-,p_colspan=>4
-,p_css_classes=>'dart-hofi'
-
-,p_item_template_options=>'#DEFAULT#'
+,p_colspan=>4,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -328,9 +318,8 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>20
-,p_plug_new_grid_row=>true
-,p_plug_new_grid_column=>true
-,p_plug_display_point=>'BODY'
+
+
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -360,7 +349,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>12
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'NONE'
@@ -376,7 +364,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DISPLAY_ONLY'
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
@@ -394,7 +381,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'POPUP'
@@ -415,7 +401,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>50
 ,p_begin_on_new_line=>'Y'
 ,p_colspan=>6
-
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
@@ -431,10 +416,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_prompt=>'Bank Amount'
 ,p_display_as=>'NATIVE_DISPLAY_ONLY'
 ,p_begin_on_new_line=>'N'
-,p_colspan=>6
-,p_css_classes=>'dart-amount'
-
-,p_item_template_options=>'#DEFAULT#'
+,p_colspan=>6,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'VALUE'
 ,p_attribute_04=>'Y'
@@ -449,7 +431,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>30
-,p_plug_display_point=>'BODY'
+
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="dart-chart-wrap">',
 '  <svg viewBox="0 0 100 100" class="dart-donut">',
@@ -503,7 +485,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>40
-,p_plug_display_point=>'BODY'
+
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -612,7 +594,6 @@ wwv_flow_imp_page.create_report_columns(
 ,p_use_as_row_header=>'N'
 ,p_heading_alignment=>'RIGHT'
 ,p_column_alignment=>'RIGHT'
-,p_column_css_classes=>'dart-num'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000410)
@@ -632,7 +613,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>50
-,p_plug_display_point=>'BODY'
+
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -696,8 +677,7 @@ wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000508)
 ,p_query_column_id=>8 ,p_column_alias=>'"Amount"' ,p_column_display_sequence=>8
 ,p_column_heading=>'Amount' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT' ,p_column_css_classes=>'dart-num'
-);
+,p_column_alignment=>'RIGHT' );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000509)
 ,p_query_column_id=>9 ,p_column_alias=>'"Description"' ,p_column_display_sequence=>9
@@ -712,7 +692,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>60
-,p_plug_display_point=>'BODY'
+
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT id "#",',
@@ -756,8 +736,7 @@ wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000604)
 ,p_query_column_id=>4 ,p_column_alias=>'"Amount"' ,p_column_display_sequence=>4
 ,p_column_heading=>'Amount' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT' ,p_column_css_classes=>'dart-num'
-);
+,p_column_alignment=>'RIGHT' );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000605)
 ,p_query_column_id=>5 ,p_column_alias=>'"Receipt Date"' ,p_column_display_sequence=>5
