@@ -435,7 +435,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>2100526641005906379
 ,p_plug_display_sequence=>30
-,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+,p_plug_header=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="dart-chart-wrap">',
 '  <svg viewBox="0 0 100 100" class="dart-donut">',
 '    <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e5e5" stroke-width="12"/>',
@@ -475,6 +475,8 @@ wwv_flow_imp_page.create_page_plug(
 '    </div>',
 '  </div>',
 '</div>'))
+,p_plug_source_type=>'NATIVE_STATIC'
+,p_attribute_01=>'HTML'
 );
 --------------------------------------------------------------------------------
 -- REGION: GL Lines (Classic Report)
@@ -487,16 +489,9 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>40
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT id "#",',
-'       fund "Fund",',
-'       budget_ref "Budget Ref",',
-'       dept "Dept",',
-'       account "Account",',
-'       program "Program",',
-'       funding_src "Funding Src",',
-'       project "Project",',
-'       TO_CHAR(amount, ''FML999G999G999G990D00'') "Amount",',
-'       description "Description"',
+'SELECT id, fund, budget_ref, dept, account, program, funding_src, project,',
+'       TO_CHAR(amount, ''FML999G999G999G990D00'') amount_fmt,',
+'       description',
 'FROM (',
 '  SELECT 1 id, ''1010'' fund, ''0000'' budget_ref, ''15675'' dept, ''47535'' account, ''0000'' program, ''0000'' funding_src, ''00000000'' project, 45000.00 amount, ''State Public Health Reimbursement'' description FROM DUAL UNION ALL',
 '  SELECT 2, ''1010'', ''0000'', ''14565'', ''47535'', ''1200'', ''3100'', ''00000000'', 25000.00, ''Federal Housing Authority Grant'' FROM DUAL UNION ALL',
@@ -513,94 +508,54 @@ wwv_flow_imp_page.create_page_plug(
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000401)
-,p_query_column_id=>1
-,p_column_alias=>'"#"'
-,p_column_display_sequence=>1
-,p_column_heading=>'#'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>1 ,p_column_alias=>'ID' ,p_column_display_sequence=>1
+,p_column_heading=>'#' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000402)
-,p_query_column_id=>2
-,p_column_alias=>'"Fund"'
-,p_column_display_sequence=>2
-,p_column_heading=>'Fund'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>2 ,p_column_alias=>'FUND' ,p_column_display_sequence=>2
+,p_column_heading=>'Fund' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000403)
-,p_query_column_id=>3
-,p_column_alias=>'"Budget Ref"'
-,p_column_display_sequence=>3
-,p_column_heading=>'Budget Ref'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>3 ,p_column_alias=>'BUDGET_REF' ,p_column_display_sequence=>3
+,p_column_heading=>'Budget Ref' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000404)
-,p_query_column_id=>4
-,p_column_alias=>'"Dept"'
-,p_column_display_sequence=>4
-,p_column_heading=>'Dept'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>4 ,p_column_alias=>'DEPT' ,p_column_display_sequence=>4
+,p_column_heading=>'Dept' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000405)
-,p_query_column_id=>5
-,p_column_alias=>'"Account"'
-,p_column_display_sequence=>5
-,p_column_heading=>'Account'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>5 ,p_column_alias=>'ACCOUNT' ,p_column_display_sequence=>5
+,p_column_heading=>'Account' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000406)
-,p_query_column_id=>6
-,p_column_alias=>'"Program"'
-,p_column_display_sequence=>6
-,p_column_heading=>'Program'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>6 ,p_column_alias=>'PROGRAM' ,p_column_display_sequence=>6
+,p_column_heading=>'Program' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000407)
-,p_query_column_id=>7
-,p_column_alias=>'"Funding Src"'
-,p_column_display_sequence=>7
-,p_column_heading=>'Funding Src'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>7 ,p_column_alias=>'FUNDING_SRC' ,p_column_display_sequence=>7
+,p_column_heading=>'Funding Src' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000408)
-,p_query_column_id=>8
-,p_column_alias=>'"Project"'
-,p_column_display_sequence=>8
-,p_column_heading=>'Project'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>8 ,p_column_alias=>'PROJECT' ,p_column_display_sequence=>8
+,p_column_heading=>'Project' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000409)
-,p_query_column_id=>9
-,p_column_alias=>'"Amount"'
-,p_column_display_sequence=>9
-,p_column_heading=>'Amount'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'RIGHT'
+,p_query_column_id=>9 ,p_column_alias=>'AMOUNT_FMT' ,p_column_display_sequence=>9
+,p_column_heading=>'Amount' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'RIGHT'
 ,p_column_alignment=>'RIGHT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000410)
-,p_query_column_id=>10
-,p_column_alias=>'"Description"'
-,p_column_display_sequence=>10
-,p_column_heading=>'Description'
-,p_use_as_row_header=>'N'
-,p_heading_alignment=>'LEFT'
+,p_query_column_id=>10 ,p_column_alias=>'DESCRIPTION' ,p_column_display_sequence=>10
+,p_column_heading=>'Description' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 --------------------------------------------------------------------------------
 -- REGION: PNG Lines (Classic Report)
@@ -613,15 +568,9 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>50
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT id "#",',
-'       project "Project",',
-'       task "Task",',
-'       exp_type "Exp Type",',
-'       exp_org "Exp Org",',
-'       contract "Contract",',
-'       funding_source "Funding Source",',
-'       TO_CHAR(amount, ''FML999G999G999G990D00'') "Amount",',
-'       description "Description"',
+'SELECT id, project, task, exp_type, exp_org, contract, funding_source,',
+'       TO_CHAR(amount, ''FML999G999G999G990D00'') amount_fmt,',
+'       description',
 'FROM (',
 '  SELECT 1 id, ''PRG10042'' project, ''1.0'' task, ''Contract Services'' exp_type, ''Public Works'' exp_org, ''DPW-24-301'' contract, ''Dept of Public Works'' funding_source, 8500.00 amount, ''Road Resurfacing '' || chr(8212) || '' Contract Labor Q4'' description FROM DUAL UNION ALL',
 '  SELECT 2, ''PRG20014'', ''2.0'', ''Supplies'', ''Behavioral Health'', ''HHS-20-101'', ''Dept of Health & Human Services'', 3200.00, ''BHS Program Supplies'' FROM DUAL UNION ALL',
@@ -636,47 +585,48 @@ wwv_flow_imp_page.create_page_plug(
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000501)
-,p_query_column_id=>1 ,p_column_alias=>'"#"' ,p_column_display_sequence=>1
+,p_query_column_id=>1 ,p_column_alias=>'ID' ,p_column_display_sequence=>1
 ,p_column_heading=>'#' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000502)
-,p_query_column_id=>2 ,p_column_alias=>'"Project"' ,p_column_display_sequence=>2
+,p_query_column_id=>2 ,p_column_alias=>'PROJECT' ,p_column_display_sequence=>2
 ,p_column_heading=>'Project' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000503)
-,p_query_column_id=>3 ,p_column_alias=>'"Task"' ,p_column_display_sequence=>3
+,p_query_column_id=>3 ,p_column_alias=>'TASK' ,p_column_display_sequence=>3
 ,p_column_heading=>'Task' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000504)
-,p_query_column_id=>4 ,p_column_alias=>'"Exp Type"' ,p_column_display_sequence=>4
+,p_query_column_id=>4 ,p_column_alias=>'EXP_TYPE' ,p_column_display_sequence=>4
 ,p_column_heading=>'Exp Type' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000505)
-,p_query_column_id=>5 ,p_column_alias=>'"Exp Org"' ,p_column_display_sequence=>5
+,p_query_column_id=>5 ,p_column_alias=>'EXP_ORG' ,p_column_display_sequence=>5
 ,p_column_heading=>'Exp Org' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000506)
-,p_query_column_id=>6 ,p_column_alias=>'"Contract"' ,p_column_display_sequence=>6
+,p_query_column_id=>6 ,p_column_alias=>'CONTRACT' ,p_column_display_sequence=>6
 ,p_column_heading=>'Contract' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000507)
-,p_query_column_id=>7 ,p_column_alias=>'"Funding Source"' ,p_column_display_sequence=>7
+,p_query_column_id=>7 ,p_column_alias=>'FUNDING_SOURCE' ,p_column_display_sequence=>7
 ,p_column_heading=>'Funding Source' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000508)
-,p_query_column_id=>8 ,p_column_alias=>'"Amount"' ,p_column_display_sequence=>8
+,p_query_column_id=>8 ,p_column_alias=>'AMOUNT_FMT' ,p_column_display_sequence=>8
 ,p_column_heading=>'Amount' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT' );
+,p_column_alignment=>'RIGHT'
+);
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000509)
-,p_query_column_id=>9 ,p_column_alias=>'"Description"' ,p_column_display_sequence=>9
+,p_query_column_id=>9 ,p_column_alias=>'DESCRIPTION' ,p_column_display_sequence=>9
 ,p_column_heading=>'Description' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 --------------------------------------------------------------------------------
@@ -690,15 +640,13 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>60
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT id "#",',
-'       receipt_number "Receipt Number",',
-'       customer "Customer",',
-'       TO_CHAR(amount, ''FML999G999G999G990D00'') "Amount",',
-'       receipt_date "Receipt Date",',
+'SELECT id, receipt_number, customer,',
+'       TO_CHAR(amount, ''FML999G999G999G990D00'') amount_fmt,',
+'       receipt_date,',
 '       CASE WHEN status = ''Applied'' THEN ''<span class="dart-status-tag dart-status-applied">'' || status || ''</span>''',
 '            ELSE ''<span class="dart-status-tag dart-status-unapplied">'' || status || ''</span>''',
-'       END "Status",',
-'       dart_batch "DART Batch"',
+'       END status_html,',
+'       dart_batch',
 'FROM (',
 '  SELECT 1 id, ''AR-DART-000001-01'' receipt_number, ''State of California '' || chr(8212) || '' DHCS'' customer, 45000.00 amount, ''2026-03-27'' receipt_date, ''Applied'' status, ''DART-000001'' dart_batch FROM DUAL UNION ALL',
 '  SELECT 2, ''AR-DART-000001-02'', ''US Dept of Housing & Urban Dev'', 25000.00, ''2026-03-27'', ''Applied'', ''DART-000001'' FROM DUAL UNION ALL',
@@ -713,38 +661,38 @@ wwv_flow_imp_page.create_page_plug(
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000601)
-,p_query_column_id=>1 ,p_column_alias=>'"#"' ,p_column_display_sequence=>1
+,p_query_column_id=>1 ,p_column_alias=>'ID' ,p_column_display_sequence=>1
 ,p_column_heading=>'#' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000602)
-,p_query_column_id=>2 ,p_column_alias=>'"Receipt Number"' ,p_column_display_sequence=>2
+,p_query_column_id=>2 ,p_column_alias=>'RECEIPT_NUMBER' ,p_column_display_sequence=>2
 ,p_column_heading=>'Receipt Number' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000603)
-,p_query_column_id=>3 ,p_column_alias=>'"Customer"' ,p_column_display_sequence=>3
+,p_query_column_id=>3 ,p_column_alias=>'CUSTOMER' ,p_column_display_sequence=>3
 ,p_column_heading=>'Customer' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000604)
-,p_query_column_id=>4 ,p_column_alias=>'"Amount"' ,p_column_display_sequence=>4
+,p_query_column_id=>4 ,p_column_alias=>'AMOUNT_FMT' ,p_column_display_sequence=>4
 ,p_column_heading=>'Amount' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'RIGHT'
 ,p_column_alignment=>'RIGHT' );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000605)
-,p_query_column_id=>5 ,p_column_alias=>'"Receipt Date"' ,p_column_display_sequence=>5
+,p_query_column_id=>5 ,p_column_alias=>'RECEIPT_DATE' ,p_column_display_sequence=>5
 ,p_column_heading=>'Receipt Date' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000606)
-,p_query_column_id=>6 ,p_column_alias=>'"Status"' ,p_column_display_sequence=>6
+,p_query_column_id=>6 ,p_column_alias=>'STATUS_HTML' ,p_column_display_sequence=>6
 ,p_column_heading=>'Status' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 ,p_display_as=>'WITHOUT_MODIFICATION'
 );
 wwv_flow_imp_page.create_report_columns(
  p_id=>wwv_flow_imp.id(90000607)
-,p_query_column_id=>7 ,p_column_alias=>'"DART Batch"' ,p_column_display_sequence=>7
+,p_query_column_id=>7 ,p_column_alias=>'DART_BATCH' ,p_column_display_sequence=>7
 ,p_column_heading=>'DART Batch' ,p_use_as_row_header=>'N' ,p_heading_alignment=>'LEFT'
 );
 --------------------------------------------------------------------------------
